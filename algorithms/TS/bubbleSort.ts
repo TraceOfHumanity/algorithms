@@ -1,5 +1,6 @@
-const numberArr: number[] = [
-  0, 3, 4, 5, 62, 1, 53, 2, 5, 4, 5, 7, 5, 3, -21, -9, -67,
+const randomNumbersArray = [
+  0, 3, 2, 5, 6, 8, 1, 9, 4, 2, 1, 2, 9, 6, 4, 1, 7, -1, -5, 23, 6, 2, 35, 6, 3,
+  32,
 ];
 
 const bubbleSort = (array: number[]) => {
@@ -15,4 +16,4 @@ const bubbleSort = (array: number[]) => {
   return array;
 };
 
-console.log(bubbleSort(numberArr));
+console.log(bubbleSort(randomNumbersArray));
