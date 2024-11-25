@@ -27,5 +27,5 @@ const binarySearch = (array: number[], item: number) => {
   return null;
 };
 
-console.log(binarySearch(Array.from({ length: 100000000 }, (_, i) => i), 15));
+console.log(binarySearch(Array.from({ length: 1000000 }, (_, i) => i), 4));
 console.log(iterationCount);
