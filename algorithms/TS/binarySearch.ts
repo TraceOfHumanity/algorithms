@@ -1,43 +1,31 @@
-const numberArray: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-const chartsArray: string[] = ["a", "b", "c", "d", "e", "f", "g", "h", "i"];
+// const numbersList: number[] = [
+//   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
+// ];
+let iterationCount = 0;
 
-const binarySearch = (array, item) => {
+const binarySearch = (array: number[], item: number) => {
   let start = 0;
   let end = array.length;
   let middle;
   let found = false;
-  let position = -1;
 
   while (found === false && start <= end) {
     middle = Math.floor((start + end) / 2);
+    iterationCount++;
+
     if (array[middle] === item) {
       found = true;
-      position = middle;
-      return position;
+      return middle;
     }
     if (item < array[middle]) {
       end = middle - 1;
-    }
-    if (item > array[middle]) {
+    } else {
       start = middle + 1;
     }
   }
+
+  return null;
 };
 
-console.log(binarySearch(numberArray, 3));
-console.log(binarySearch(chartsArray, "h"));
-
-const recursiveBinarySearch = (array, item, start, end) => {
-  let middle = Math.floor((start + end) / 2);
-
-  if (item === array[middle]) {
-    return middle;
-  }
-  if (item < array[middle]) {
-    return recursiveBinarySearch(array, item, start, middle - 1);
-  } else {
-    return recursiveBinarySearch(array, item, middle + 1, end);
-  }
-};
-
-console.log(recursiveBinarySearch(numberArray, 8, 0, numberArray.length));
+console.log(binarySearch(Array.from({ length: 100000000 }, (_, i) => i), 15));
+console.log(iterationCount);
