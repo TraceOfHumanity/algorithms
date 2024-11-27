@@ -54,3 +54,24 @@ const recursiveSum = (tree: any) => {
 };
 
 console.log(recursiveSum(tree));
+
+// 2. iterative sum of tree values
+const iterativeSum = (tree: any) => {
+  if (!tree || tree.length === 0) return 0;
+
+  let sum = 0;
+  const stack = [...tree];
+
+  while (stack.length > 0) {
+    const node = stack.pop();
+    sum += node.value;
+
+    if (node.children) {
+      stack.push(...node.children);
+    }
+  }
+
+  return sum;
+};
+
+console.log(iterativeSum(tree));
