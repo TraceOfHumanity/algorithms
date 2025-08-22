@@ -74,6 +74,15 @@ class LinkedList {
     }
     return temp;
   }
+
+  get(index: number) {
+    if (index < 0 || index >= this.length) return undefined;
+    let temp = this.head;
+    for (let i = 0; i < index; i++) {
+      temp = temp!.next;
+    }
+    return temp;
+  }
 }
 
 let myLinkedList = new LinkedList(4);
@@ -83,3 +92,8 @@ console.log(myLinkedList.pop())
 console.log(myLinkedList.unshift(3))
 console.log(myLinkedList.shift())
 console.log(myLinkedList);
+console.log(myLinkedList.unshift(1))
+console.log(myLinkedList.unshift(2))
+console.log(myLinkedList.unshift(3))
+console.log(myLinkedList.get(0));
+console.log(myLinkedList.get(2));
