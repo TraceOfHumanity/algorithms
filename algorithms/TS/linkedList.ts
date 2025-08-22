@@ -104,22 +104,50 @@ class LinkedList {
     this.length++;
     return true;
   }
+
+  remove(index: number) {
+    if (index < 0 || index >= this.length) return undefined;
+    if (index === this.length - 1) return this.pop();
+    if (index === 0) return this.shift();
+    const temp = this.get(index);
+    const before = this.get(index - 1);
+    before!.next = temp!.next;
+    temp!.next = null;
+    this.length--;
+    return temp;
+  }
+
+  reverse() {
+    let temp = this.head;
+    this.head = this.tail;
+    this.tail = temp;
+    let before: ListNode | null = null;
+    let after: ListNode | null = temp!.next;
+    for (let i = 0; i < this.length; i++) {
+      after = temp!.next;
+      temp!.next = before;
+      before = temp;
+      temp = after;
+    }
+    return this;
+  }
 }
 
 let myLinkedList = new LinkedList(4);
 console.log(myLinkedList.push(5));
-console.log(myLinkedList.pop())
-console.log(myLinkedList.pop())
-console.log(myLinkedList.unshift(3))
-console.log(myLinkedList.shift())
-console.log(myLinkedList);
-console.log(myLinkedList.unshift(1))
-console.log(myLinkedList.unshift(2))
-console.log(myLinkedList.unshift(3))
-console.log(myLinkedList.get(0));
-console.log(myLinkedList.get(2));
-console.log(myLinkedList.set(2, 10));
-console.log(myLinkedList.get(2));
-console.log(myLinkedList.push(5));
-console.log(myLinkedList.insert(2, 10));
-console.log(myLinkedList.get(2));
+// console.log(myLinkedList.pop())
+// console.log(myLinkedList.pop())
+// console.log(myLinkedList.unshift(3))
+// console.log(myLinkedList.shift())
+// console.log(myLinkedList);
+// console.log(myLinkedList.unshift(1))
+// console.log(myLinkedList.unshift(2))
+// console.log(myLinkedList.unshift(3))
+// console.log(myLinkedList.get(0));
+// console.log(myLinkedList.get(2));
+// console.log(myLinkedList.set(2, 10));
+// console.log(myLinkedList.get(2));
+// console.log(myLinkedList.push(5));
+// console.log(myLinkedList.insert(2, 10));
+// console.log(myLinkedList.get(2));
+console.log(myLinkedList.reverse());
