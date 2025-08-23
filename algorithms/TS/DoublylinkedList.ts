@@ -58,6 +58,7 @@ class DoublyLinkedList {
       this.tail = newNode;
     } else {
       newNode.next = this.head;
+      this.head!.prev = newNode;
       this.head = newNode;
     }
     this.length++;
@@ -67,19 +68,29 @@ class DoublyLinkedList {
   shift() {
     if (this.length === 0) return undefined;
     let temp = this.head;
-    this.head = this.head!.next;
-    this.length--;
-    if (this.length === 0) {
+    if (this.length === 1) {
+      this.head = null;
       this.tail = null;
+    } else {
+      this.head = this.head!.next;
+      this.head!.prev = null;
     }
+    this.length--;
     return temp;
   }
 
   get(index: number) {
     if (index < 0 || index >= this.length) return undefined;
     let temp = this.head;
-    for (let i = 0; i < index; i++) {
-      temp = temp!.next;
+    if (index < this.length / 2) {
+      for (let i = 0; i < index; i++) {
+        temp = temp!.next;
+      }
+    } else {
+      temp = this.tail;
+      for (let i = this.length - 1; i > index; i--) {
+        temp = temp!.prev;
+      }
     }
     return temp;
   }
@@ -98,9 +109,12 @@ class DoublyLinkedList {
     if (index === this.length) return this.push(value);
     if (index === 0) return this.unshift(value);
     const newNode = new DoublyNode(value);
-    const temp = this.get(index - 1);
-    newNode.next = temp!.next;
-    temp!.next = newNode;
+    const before = this.get(index - 1);
+    const after = before!.next;
+    before!.next = newNode;
+    newNode.prev = before!;
+    newNode.next = after;
+    after!.prev = newNode;
     this.length++;
     return true;
   }
@@ -110,9 +124,11 @@ class DoublyLinkedList {
     if (index === this.length - 1) return this.pop();
     if (index === 0) return this.shift();
     const temp = this.get(index);
-    const before = this.get(index - 1);
-    before!.next = temp!.next;
+    
+    temp!.prev!.next = temp!.next;
+    temp!.next!.prev = temp!.prev;
     temp!.next = null;
+    temp!.prev = null;
     this.length--;
     return temp;
   }
@@ -131,55 +147,9 @@ class DoublyLinkedList {
     }
     return this;
   }
-
-  findKthFromEnd(k) {
-    let slow = this.head;
-    let fast = this.head;
-    for (let i = 0; i < k; i++) {
-      if (fast === null) {
-        return null;
-      }
-      fast = fast.next;
-    }
-    while (fast !== null) {
-      slow = slow!.next;
-      fast = fast!.next;
-    }
-    return slow;
-  }
-
-  hasLoop() {
-    let slow = this.head;
-    let fast = this.head;
-    while (fast !== null && fast.next !== null) {
-      slow = slow!.next;
-      fast = fast!.next!.next;
-      if (slow === fast) {
-        return true;
-      }
-    }
-    return false;
-  }
 }
 
 let doublyLinkedList = new DoublyLinkedList(4);
-// console.log(myLinkedList.push(5));
-// console.log(myLinkedList.pop())
-// console.log(myLinkedList.pop())
-// console.log(myLinkedList.unshift(3))
-// console.log(myLinkedList.shift())
-// console.log(myLinkedList);
-// console.log(myLinkedList.unshift(1))
-// console.log(myLinkedList.unshift(2))
-// console.log(myLinkedList.unshift(3))
-// console.log(myLinkedList.get(0));
-// console.log(myLinkedList.get(2));
-// console.log(myLinkedList.set(2, 10));
-// console.log(myLinkedList.get(2));
-// console.log(myLinkedList.push(5));
-// console.log(myLinkedList.insert(2, 10));
-// console.log(myLinkedList.get(2));
-// console.log(myLinkedList.reverse());
 console.log(doublyLinkedList.push(5))
 console.log(doublyLinkedList.pop())
 console.log(doublyLinkedList.pop())
