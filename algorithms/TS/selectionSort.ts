@@ -1,21 +1,19 @@
-const randomNumbersArray = [4, 1, 3, 7, 2, 5, 6];
-let iterationCount = 0;
-
-const selectionSort = (array: number[]) => {
-  for (let i = 0; i < array.length; i++) {
-    let indexMin = i;
+function selectionSort(array: number[]): number[] {
+  let minIndex;
+  for (let i = 0; i < array.length - 1; i++) {
+    minIndex = i;
     for (let j = i + 1; j < array.length; j++) {
-      if (array[j] < array[indexMin]) {
-        indexMin = j;
+      if (array[j] < array[minIndex]) {
+        minIndex = j;
       }
-      iterationCount++;
     }
-    let tmp = array[i];
-    array[i] = array[indexMin];
-    array[indexMin] = tmp;
+    if (minIndex !== i) {
+      let temp = array[i];
+      array[i] = array[minIndex];
+      array[minIndex] = temp;
+    }
   }
   return array;
-};
+}
 
-console.log(selectionSort(randomNumbersArray));
-console.log(iterationCount);
+console.log(selectionSort([4, 2, 3, 5, 1]));
