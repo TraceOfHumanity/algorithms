@@ -15,9 +15,20 @@ class Graph {
 
   addEdge(vertex1: string, vertex2: string) {
     if (this.adjacencyList[vertex1] && this.adjacencyList[vertex2]) {
+      if (this.adjacencyList[vertex1].includes(vertex2)) {
+        return false;
+      }
+      if (this.adjacencyList[vertex2].includes(vertex1)) {
+        return false;
+      }
       this.adjacencyList[vertex1].push(vertex2);
+      this.adjacencyList[vertex2].push(vertex1);
+      return true;
     }
+    return false;
   }
+
+  
 }
 
 const myGraph = new Graph();
