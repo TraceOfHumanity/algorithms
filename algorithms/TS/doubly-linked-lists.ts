@@ -21,7 +21,100 @@ class DoublyLinkedList {
     this.tail = newNode;
     this.length = 1;
   }
+
+  push(value: number) {
+    const newNode = new DoublyNode(value);
+    if (this.length === 0) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      this.tail!.next = newNode;
+      newNode.prev = this.tail;
+      this.tail = newNode;
+    }
+    this.length++;
+    console.log(this.length);
+    return this;
+  }
+
+  pop() {
+    if (this.length === 0) return undefined;
+    const temp = this.tail;
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      this.tail = this.tail!.prev;
+      this.tail!.next = null;
+      temp!.prev = null;
+    }
+    this.length--;
+    console.log(this.length);
+    return temp;
+  }
+
+  unshift(value: number) {
+    const newNode = new DoublyNode(value);
+    if (this.length === 0) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      newNode.next = this.head;
+      this.head!.prev = newNode;
+      this.head = newNode;
+    }
+    this.length++;
+    console.log(this.length);
+    return this;
+  }
+
+  shift() {
+    if (this.length === 0) return undefined;
+    const temp = this.head;
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      this.head = this.head!.next;
+      this.head!.prev = null;
+    }
+    this.length--;
+    console.log(this.length);
+    return temp;
+  }
+
+  get(index: number) {
+    if (index < 0 || index >= this.length) return undefined;
+    let temp = this.head;
+    if (index < this.length / 2) {
+      for (let i = 0; i < index; i++) {
+        temp = temp!.next;
+      }
+    } else {
+      temp = this.tail;
+      for (let i = this.length - 1; i > index; i--) {
+        temp = temp!.prev;
+      }
+    }
+    console.log(temp);
+    return temp;
+  }
+
+  set(index: number, value: number) {
+    let temp = this.get(index);
+    if (temp) {
+      temp.value = value;
+      return true;
+    }
+    return false;
+  }
 }
 
 let myDoublyLinkedList = new DoublyLinkedList(4);
-console.log(myDoublyLinkedList);
+console.log(myDoublyLinkedList.push(5));
+console.log(myDoublyLinkedList.pop());
+console.log(myDoublyLinkedList.unshift(3));
+// console.log(myDoublyLinkedList.shift());
+console.log(myDoublyLinkedList.get(1));
+console.log(myDoublyLinkedList.set(1, 1));
+console.log(myDoublyLinkedList.get(1));
