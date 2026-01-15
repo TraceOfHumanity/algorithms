@@ -138,15 +138,43 @@ class DoublyLinkedList {
     console.log(this);
     return temp;
   }
+
+  isPalindrome() {
+    if (this.length <= 1) return true;
+    let start = this.head;
+    let end = this.tail;
+    for (let i = 0; i < this.length / 2; i++) {
+      if (start!.value !== end!.value) {
+        return false;
+      }
+      start = start!.next;
+      end = end!.prev;
+    }
+    return true;
+  }
+
+  reverse() {
+    let current = this.head;
+    let temp: DoublyNode | null = null;
+
+    this.head = this.tail;
+    this.tail = current;
+
+    while (current) {
+      temp = current.prev;
+
+      current.prev = current.next;
+      current.next = temp;
+
+      current = current.prev;
+    }
+
+    return this;
+  }
 }
 
 let myDoublyLinkedList = new DoublyLinkedList(4);
-console.log(myDoublyLinkedList.push(5));
-console.log(myDoublyLinkedList.pop());
-console.log(myDoublyLinkedList.unshift(3));
-// console.log(myDoublyLinkedList.shift());
-console.log(myDoublyLinkedList.get(1));
-console.log(myDoublyLinkedList.set(1, 1));
-console.log(myDoublyLinkedList.get(1));
-console.log(myDoublyLinkedList.insert(0, 10));
-console.log(myDoublyLinkedList.remove(1));
+myDoublyLinkedList.push(5);
+myDoublyLinkedList.push(6);
+myDoublyLinkedList.push(7);
+console.log(myDoublyLinkedList.reverse());
