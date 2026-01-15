@@ -1,10 +1,10 @@
 class QueueNode {
-  value: any;
+  value: number;
   next: QueueNode | null;
 
-  constructor(value: any, next: QueueNode | null = null) {
+  constructor(value: number) {
     this.value = value;
-    this.next = next;
+    this.next = null;
   }
 }
 
@@ -13,14 +13,14 @@ class Queue {
   last: QueueNode | null;
   length: number;
 
-  constructor(value: any) {
+  constructor(value: number) {
     const newNode = new QueueNode(value);
     this.first = newNode;
     this.last = newNode;
     this.length = 1;
   }
 
-  enqueue(value: any) {
+  enqueue(value: number) {
     const newNode = new QueueNode(value);
     if (this.length === 0) {
       this.first = newNode;
@@ -36,29 +36,19 @@ class Queue {
   dequeue() {
     if (this.length === 0) return undefined;
     const temp = this.first;
-    this.first = this.first!.next;
-    temp!.next = null;
-    this.length--;
-    if (this.length === 0) {
+    if (this.length === 1) {
       this.first = null;
       this.last = null;
+    } else {
+      this.first = this.first!.next;
     }
+    this.length--;
     return temp;
-  }
-
-  print() {
-    let temp = this.first;
-    while (temp !== null) {
-      console.log(temp.value,);
-      temp = temp.next;
-    }
-    return this;
   }
 }
 
 let myQueue = new Queue(1);
-myQueue.enqueue(2);
-myQueue.enqueue(3);
-console.log(myQueue.print());
+console.log(myQueue);
+console.log(myQueue.enqueue(2));
+
 console.log(myQueue.dequeue());
-// console.log(myQueue.print());
