@@ -1,5 +1,5 @@
 class Graph {
-  private adjacencyList: { [key: string]: string[] };
+  adjacencyList: { [key: string]: string[] };
 
   constructor() {
     this.adjacencyList = {};
@@ -15,12 +15,6 @@ class Graph {
 
   addEdge(vertex1: string, vertex2: string) {
     if (this.adjacencyList[vertex1] && this.adjacencyList[vertex2]) {
-      if (this.adjacencyList[vertex1].includes(vertex2)) {
-        return false;
-      }
-      if (this.adjacencyList[vertex2].includes(vertex1)) {
-        return false;
-      }
       this.adjacencyList[vertex1].push(vertex2);
       this.adjacencyList[vertex2].push(vertex1);
       return true;
@@ -28,12 +22,35 @@ class Graph {
     return false;
   }
 
-  
+  removeEdge(vertex1: string, vertex2: string) {
+    if (this.adjacencyList[vertex1] && this.adjacencyList[vertex2]) {
+      this.adjacencyList[vertex1] = this.adjacencyList[vertex1].filter(v => v !== vertex2);
+      this.adjacencyList[vertex2] = this.adjacencyList[vertex2].filter(v => v !== vertex1);
+      return true;
+    }
+    return false;
+  }
+
+  removeVertex(vertex: string) {
+    if (!this.adjacencyList[vertex]) return undefined;
+    while (this.adjacencyList[vertex].length) {
+      let temp = this.adjacencyList[vertex].pop();
+      if (temp) {
+        this.removeEdge(vertex, temp);
+      }
+    }
+    delete this.adjacencyList[vertex];
+    return this;
+  }
 }
 
 const myGraph = new Graph();
 myGraph.addVertex("A");
 myGraph.addVertex("B");
+myGraph.addVertex("C");
 myGraph.addEdge("A", "B");
+myGraph.addEdge("A", "C");
+myGraph.removeEdge("A", "B");
+myGraph.removeVertex("A"); 
 
 console.log(myGraph);
