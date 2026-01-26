@@ -42,6 +42,21 @@ class BinaryTree {
             }
         }
         return this;
+    }   
+
+    contains(value: number) {
+        if (this.root === null) return false;
+        let temp = this.root;
+        while (temp) {
+            if (value < temp.value) {
+                temp = temp.left!;
+            } else if (value > temp.value) {
+                temp = temp.right!;
+            } else {
+                return true;
+            }
+        }
+        return false;
     }
 }
 
@@ -49,3 +64,4 @@ const tree = new BinaryTree();
 console.log(tree.insert(47));
 console.log(tree.insert(46));
 console.log(tree.insert(48));
+console.log(tree.contains(46));
