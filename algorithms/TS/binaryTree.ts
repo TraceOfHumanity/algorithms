@@ -68,6 +68,26 @@ class BinaryTree {
             return this.recursiveContains(value, currentNode.right);
         }
     }
+
+    recursiveInsert(value: number, currentNode = this.root) {
+        if (this.root === null) return new BinaryTreeNode(value);
+        if (currentNode === null) return new BinaryTreeNode(value);
+
+
+        if (value < currentNode.value) {
+            currentNode.left = this.recursiveInsert(value, currentNode.left);
+        } else {
+            currentNode.right = this.recursiveInsert(value, currentNode.right);
+        }
+        return currentNode;
+    }
+
+    minValue(currentNode: BinaryTreeNode) {
+        while (currentNode.left !== null) {
+            currentNode = currentNode.left;
+        }
+        return currentNode.value;
+    }
 }
 
 const tree = new BinaryTree();
@@ -76,3 +96,4 @@ console.log(tree.insert(46));
 console.log(tree.insert(48));
 console.log(tree.contains(46));
 console.log(tree.recursiveContains(50));
+console.log(tree.recursiveInsert(49));
