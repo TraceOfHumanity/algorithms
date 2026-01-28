@@ -27,6 +27,14 @@ class Heap {
             current = this.parent(current);
         }
     }
+
+    remove() {
+        if (this.heap.length === 0) return undefined;
+        if (this.heap.length === 1) return this.heap.pop();
+        const maxValue = this.heap[0];
+        this.heap[0] = this.heap.pop()!;
+        return maxValue;
+    }
 }
 
 const myHeap = new Heap();
