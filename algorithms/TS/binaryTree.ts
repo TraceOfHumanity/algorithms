@@ -88,6 +88,29 @@ class BinaryTree {
         }
         return currentNode.value;
     }
+
+    deleteNode(value: number, currentNode = this.root) {
+        if (currentNode === null) return null;
+
+        if (value < currentNode.value) {
+            currentNode.left = this.deleteNode(value, currentNode.left);
+        } else if (value > currentNode.value) {
+            currentNode.right = this.deleteNode(value, currentNode.right);
+        } else {
+            if (currentNode.left === null && currentNode.right === null) {
+                return null;
+            } else if (currentNode.left === null) {
+                return currentNode.right;
+            } else if (currentNode.right === null) {
+                return currentNode.left;
+            } else {
+                let subTreeMinValue = this.minValue(currentNode.right);
+                currentNode.value = subTreeMinValue;
+                currentNode.right = this.deleteNode(subTreeMinValue, currentNode.right);
+            }
+        }
+        return currentNode;
+    }
 }
 
 const tree = new BinaryTree();
