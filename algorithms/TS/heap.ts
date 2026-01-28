@@ -33,7 +33,33 @@ class Heap {
         if (this.heap.length === 1) return this.heap.pop();
         const maxValue = this.heap[0];
         this.heap[0] = this.heap.pop()!;
+        this.sinkDown(0);
         return maxValue;
+    }
+
+    sinkDown(index: number) {
+        let maxIndex = index;
+        let size = this.heap.length;
+        while (true){
+            let leftIndex = this.leftChild(index);
+            let rightIndex = this.rightChild(index);
+
+            if (leftIndex < size && this.heap[leftIndex] > this.heap[maxIndex]) {
+                maxIndex = leftIndex;
+            }
+
+            if (rightIndex < size && this.heap[rightIndex] > this.heap[maxIndex]) {
+                maxIndex = rightIndex;
+            }
+
+            if (maxIndex !== index) {
+                this.swap(index, maxIndex);
+                index = maxIndex;
+            } else {
+                break;
+            }
+            
+        }
     }
 }
 
@@ -42,6 +68,7 @@ myHeap.insert(10);
 myHeap.insert(20);
 myHeap.insert(30);
 myHeap.insert(15);
+// myHeap.remove();
 
 
 console.log(myHeap.getHeap());

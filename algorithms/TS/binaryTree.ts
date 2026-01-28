@@ -42,7 +42,7 @@ class BinaryTree {
             }
         }
         return this;
-    }   
+    }
 
     contains(value: number) {
         if (this.root === null) return false;
@@ -58,6 +58,16 @@ class BinaryTree {
         }
         return false;
     }
+
+    recursiveContains(value: number, currentNode = this.root) {
+        if (currentNode === null) return false;
+        if (currentNode.value === value) return true;
+        if (value < currentNode.value) {
+            return this.recursiveContains(value, currentNode.left);
+        } else {
+            return this.recursiveContains(value, currentNode.right);
+        }
+    }
 }
 
 const tree = new BinaryTree();
@@ -65,3 +75,4 @@ console.log(tree.insert(47));
 console.log(tree.insert(46));
 console.log(tree.insert(48));
 console.log(tree.contains(46));
+console.log(tree.recursiveContains(50));
