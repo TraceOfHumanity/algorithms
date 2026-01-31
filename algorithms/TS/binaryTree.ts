@@ -111,12 +111,25 @@ class BinaryTree {
         }
         return currentNode;
     }
+
+    BFS() {
+        let currentNode = this.root;
+        if (currentNode === null) return [];
+        let results: number[] = [];
+        let queue: BinaryTreeNode[] = [];
+        queue.push(currentNode);
+        while (queue.length) {
+            currentNode = queue.shift()!;
+            results.push(currentNode.value);
+            if (currentNode.left) queue.push(currentNode.left);
+            if (currentNode.right) queue.push(currentNode.right);
+        }
+        return results;
+    }
 }
 
 const tree = new BinaryTree();
 console.log(tree.insert(47));
 console.log(tree.insert(46));
 console.log(tree.insert(48));
-console.log(tree.contains(46));
-console.log(tree.recursiveContains(50));
-console.log(tree.recursiveInsert(49));
+console.log(tree.BFS());
