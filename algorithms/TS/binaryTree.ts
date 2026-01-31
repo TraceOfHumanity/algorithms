@@ -126,6 +126,42 @@ class BinaryTree {
         }
         return results;
     }
+
+    DFSPreOrder() {
+        let results: number[] = [];
+        function traverse(currentNode: BinaryTreeNode) {
+            results.push(currentNode.value);
+            if (currentNode.left) traverse(currentNode.left);
+            if (currentNode.right) traverse(currentNode.right);
+        }
+        if (!this.root) return [];
+        traverse(this.root);
+        return results;
+    }
+
+    DFSPostOrder() {
+        let results: number[] = [];
+        function traverse(currentNode: BinaryTreeNode) {
+            if (currentNode.left) traverse(currentNode.left);
+            if (currentNode.right) traverse(currentNode.right);
+            results.push(currentNode.value);
+        }
+        if (!this.root) return [];
+        traverse(this.root);
+        return results;
+    }
+
+    DFSInOrder() {
+        let results: number[] = [];
+        function traverse(currentNode: BinaryTreeNode) {
+            if (currentNode.left) traverse(currentNode.left);
+            results.push(currentNode.value);
+            if (currentNode.right) traverse(currentNode.right);
+        }
+        if (!this.root) return [];
+        traverse(this.root);
+        return results;
+    }
 }
 
 const tree = new BinaryTree();
@@ -133,3 +169,6 @@ console.log(tree.insert(47));
 console.log(tree.insert(46));
 console.log(tree.insert(48));
 console.log(tree.BFS());
+console.log(tree.DFSPreOrder());
+console.log(tree.DFSPostOrder());
+console.log(tree.DFSInOrder());
