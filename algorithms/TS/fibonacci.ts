@@ -14,16 +14,31 @@
 // console.log(fibonacci(10));
 // console.log(fibonacci(100));
 
-let memo: number[] = [];
-let count = 0;
+//-----------------------------------------------------
+
+// let memo: number[] = [];
+// let count = 0;
+
+// const fibonacci = (n: number) => {
+//   count++;
+//   if (memo[n] !== undefined) return memo[n];
+//   if (n === 1 || n === 0) return n;
+//   memo[n] = fibonacci(n - 1) + fibonacci(n - 2);
+//   return memo[n];
+// }
+
+// console.log(fibonacci(30));
+// console.log(count);
+
+//-----------------------------------------------------
 
 const fibonacci = (n: number) => {
-  count++;
-  if (memo[n] !== undefined) return memo[n];
-  if (n === 1 || n === 0) return n;
-  memo[n] = fibonacci(n - 1) + fibonacci(n - 2);
-  return memo[n];
+  let fibonacciArray: number[] = [0, 1];
+
+  for (let i = 2; i <= n; i++) {
+    fibonacciArray[i] = fibonacciArray[i - 1] + fibonacciArray[i - 2];
+  }
+  return fibonacciArray[n];
 }
 
-console.log(fibonacci(30));
-console.log(count);
+console.log(fibonacci(7));
