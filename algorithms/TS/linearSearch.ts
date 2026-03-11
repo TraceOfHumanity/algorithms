@@ -12,4 +12,3 @@ const linearSearch = (array: number[], item: number) => {
 };
 
 console.log(linearSearch(numbers, 15));
-console.log(iterationCount);
