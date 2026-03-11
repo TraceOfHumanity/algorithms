@@ -132,7 +132,7 @@ class LinkedList {
     return this;
   }
 
-  findKthFromEnd(k) {
+  findKthFromEnd(k: number) {
     let slow = this.head;
     let fast = this.head;
     for (let i = 0; i < k; i++) {
@@ -160,25 +160,23 @@ class LinkedList {
     }
     return false;
   }
+
+  findMiddleNode() {
+    let slow = this.head;
+    let fast = this.head;
+    while (fast !== null && fast.next !== null) {
+      slow = slow!.next;
+      fast = fast!.next!.next;
+    }
+    return slow;
+  }
+
 }
 
 let myLinkedList = new LinkedList(4);
-// console.log(myLinkedList.push(5));
-// console.log(myLinkedList.pop())
-// console.log(myLinkedList.pop())
-// console.log(myLinkedList.unshift(3))
-// console.log(myLinkedList.shift())
-// console.log(myLinkedList);
-// console.log(myLinkedList.unshift(1))
-// console.log(myLinkedList.unshift(2))
-// console.log(myLinkedList.unshift(3))
-// console.log(myLinkedList.get(0));
-// console.log(myLinkedList.get(2));
-// console.log(myLinkedList.set(2, 10));
-// console.log(myLinkedList.get(2));
-// console.log(myLinkedList.push(5));
-// console.log(myLinkedList.insert(2, 10));
-// console.log(myLinkedList.get(2));
-// console.log(myLinkedList.reverse());
 myLinkedList.push(5)
+myLinkedList.push(6)
+myLinkedList.push(7)
+
+console.log(myLinkedList.findMiddleNode());
 console.log(myLinkedList)
