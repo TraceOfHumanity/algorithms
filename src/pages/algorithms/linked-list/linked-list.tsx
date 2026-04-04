@@ -1,9 +1,5 @@
-import React from 'react'
+const LinkedList = () => {
+  return <div>linked-list</div>;
+};
 
-const Linkedlist = () => {
-  return (
-    <div>linked-list</div>
-  )
-}
-
-export default Linkedlist
+export default LinkedList;
