@@ -1,8 +1,8 @@
 class ListNode {
-  value: any;
+  value: string | number;
   next: ListNode | null;
 
-  constructor(value: any) {
+  constructor(value: string | number) {
     this.value = value;
     this.next = null;
   }
@@ -13,14 +13,14 @@ class LinkedList {
   tail: ListNode | null;
   length: number;
 
-  constructor(value: number) {
+  constructor(value: string | number) {
     const newNode = new ListNode(value);
     this.head = newNode;
     this.tail = this.head;
     this.length = 1;
   }
 
-  push(value: number) {
+  push(value: string | number) {
     const newNode = new ListNode(value);
     if (!this.head) {
       this.head = newNode;
@@ -51,7 +51,7 @@ class LinkedList {
     return temp;
   }
 
-  unshift(value: number) {
+  unshift(value: string | number) {
     const newNode = new ListNode(value);
     if (!this.head) {
       this.head = newNode;
@@ -66,7 +66,7 @@ class LinkedList {
 
   shift() {
     if (this.length === 0) return undefined;
-    let temp = this.head;
+    const temp = this.head;
     this.head = this.head!.next;
     this.length--;
     if (this.length === 0) {
@@ -84,8 +84,8 @@ class LinkedList {
     return temp;
   }
 
-  set(index: number, value: number) {
-    let temp = this.get(index);
+  set(index: number, value: string | number) {
+    const temp = this.get(index);
     if (temp) {
       temp.value = value;
       return true;
@@ -93,7 +93,7 @@ class LinkedList {
     return false;
   }
 
-  insert(index: number, value: number) {
+  insert(index: number, value: string | number) {
     if (index < 0 || index > this.length) return false;
     if (index === this.length) return this.push(value);
     if (index === 0) return this.unshift(value);
@@ -173,7 +173,7 @@ class LinkedList {
 
 }
 
-let myLinkedList = new LinkedList(4);
+const myLinkedList = new LinkedList(4);
 myLinkedList.push(5)
 myLinkedList.push(6)
 myLinkedList.push(7)
