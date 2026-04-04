@@ -3,6 +3,7 @@ import Home from "./pages/home/home";
 import NotFound from "./pages/not-found/not-found";
 import Linkedlist from "./pages/algorithms/linked-list/linked-list";
 import RootLayout from "./layouts/root-layout";
+import DoublyLinkedList from "./pages/algorithms/doubly-linked-list/doubly-linked-list";
 
 const router = createBrowserRouter([
   {
@@ -11,6 +12,7 @@ const router = createBrowserRouter([
     children: [
       { path: "", element: <Home />, index: true },
       { path: "linked-list", element: <Linkedlist /> },
+      { path: "doubly-linked-list", element: <DoublyLinkedList /> },
       { path: "*", element: <NotFound /> },
     ],
   },
