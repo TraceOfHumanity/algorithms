@@ -1,5 +1,7 @@
+import { Routing } from "./router";
+
 function App() {
-  return <>hello world</>;
+  return <Routing />;
 }
 
 export default App;
