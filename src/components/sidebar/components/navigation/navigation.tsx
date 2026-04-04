@@ -1,5 +1,15 @@
+import useNavigation from "./hooks/use-navigation";
+import NavigationItem from "./navigation-item";
+
 const Navigation = () => {
-  return <div>navigation</div>;
+  const navigationItems = useNavigation();
+  return (
+    <>
+      {navigationItems.map((item) => (
+        <NavigationItem key={item.to as string} item={item} />
+      ))}
+    </>
+  );
 };
 
 export default Navigation;
