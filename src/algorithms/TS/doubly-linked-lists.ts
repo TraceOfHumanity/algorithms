@@ -101,7 +101,7 @@ class DoublyLinkedList {
   }
 
   set(index: number, value: number) {
-    let temp = this.get(index);
+    const temp = this.get(index);
     if (temp) {
       temp.value = value;
       return true;
@@ -173,7 +173,7 @@ class DoublyLinkedList {
   }
 }
 
-let myDoublyLinkedList = new DoublyLinkedList(4);
+const myDoublyLinkedList = new DoublyLinkedList(4);
 myDoublyLinkedList.push(5);
 myDoublyLinkedList.push(6);
 myDoublyLinkedList.push(7);

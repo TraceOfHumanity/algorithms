@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
 import Home from "./pages/home/home";
-import Linkedlist from "./algorithms/TS/linked-list/linked-list";
 import NotFound from "./pages/not-found/not-found";
+import Linkedlist from "./pages/algorithms/linked-list/linked-list";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
