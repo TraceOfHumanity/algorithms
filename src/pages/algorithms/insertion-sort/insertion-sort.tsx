@@ -1,5 +1,11 @@
+import Title from "../../../components/title";
+
 const InsertionSort = () => {
-  return <div>insertion-sort</div>;
+  return (
+    <div>
+      <Title title="Insertion Sort" />
+    </div>
+  );
 };
 
 export default InsertionSort;

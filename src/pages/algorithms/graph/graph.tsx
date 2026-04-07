@@ -1,5 +1,11 @@
+import Title from "../../../components/title";
+
 const Graph = () => {
-  return <div>graph</div>;
+  return (
+    <div>
+      <Title title="Graph" />
+    </div>
+  );
 };
 
 export default Graph;

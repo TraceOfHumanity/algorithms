@@ -1,5 +1,11 @@
+import Title from "../../../components/title";
+
 const BinaryTree = () => {
-  return <div>binary-tree</div>;
+  return (
+    <div>
+      <Title title="Binary Tree" />
+    </div>
+  );
 };
 
 export default BinaryTree;

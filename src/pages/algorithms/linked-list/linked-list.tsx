@@ -1,5 +1,11 @@
+import Title from "../../../components/title";
+
 const LinkedList = () => {
-  return <div>linked-list</div>;
+  return (
+    <div>
+      <Title title="Linked List" />
+    </div>
+  );
 };
 
 export default LinkedList;

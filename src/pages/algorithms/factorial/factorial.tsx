@@ -1,5 +1,11 @@
+import Title from "../../../components/title";
+
 const Factorial = () => {
-  return <div>factorial</div>;
+  return (
+    <div>
+      <Title title="Factorial" />
+    </div>
+  );
 };
 
 export default Factorial;

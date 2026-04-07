@@ -1,5 +1,11 @@
+import Title from "../../../components/title";
+
 const DoublyLinkedList = () => {
-  return <div>doubly-linked-list</div>;
+  return (
+    <div>
+      <Title title="Doubly Linked List" />
+    </div>
+  );
 };
 
 export default DoublyLinkedList;
