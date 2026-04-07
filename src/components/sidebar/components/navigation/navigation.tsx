@@ -1,11 +1,14 @@
+import { cn } from "../../../../utils/cn";
+import { useSidebarContext } from "../../context/sidebar";
 import useNavigation from "./hooks/use-navigation";
 import NavigationItem from "./navigation-item";
 
 const Navigation = () => {
   const { dataStructures, algorithms } = useNavigation();
   const sections = [dataStructures, algorithms];
+  const { isOpen } = useSidebarContext();
   return (
-    <nav className="flex flex-col gap-4">
+    <nav className={cn(isOpen ? "flex" : "hidden", "flex-col gap-4")}>
       {sections.map((section) => (
         <div key={section.title} className="flex flex-col gap-2">
           <h2 className="text-xs font-semibold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">

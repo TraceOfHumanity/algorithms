@@ -1,19 +1,16 @@
-import { useState } from "react";
-import Card from "../ui/card/card";
 import Header from "./components/header";
 import Navigation from "./components/navigation/navigation";
-import { cn } from "../../utils/cn";
+import Wrapper from "./components/wrapper";
 
 const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(false);
   return (
-    <Card className={cn(isOpen ? "" : "h-fit", "transition-all duration-300")}>
-      <Header isOpen={isOpen} setIsOpen={setIsOpen} />
-      {isOpen && (
-        <Navigation />
-      )}
-    </Card>
+    <Sidebar.Wrapper>
+      <Header />
+      <Navigation />
+    </Sidebar.Wrapper>
   );
 };
+
+Sidebar.Wrapper = Wrapper;
 
 export default Sidebar;
