@@ -28,7 +28,6 @@ const UseNavigationItems = () => {
       { label: "Quick Sort", to: "/quick-sort" },
       { label: "Remove Element", to: "/remove-element" },
       { label: "Selection Sort", to: "/selection-sort" },
-      { label: "Test Task", to: "/test-task" },
       { label: "Thee Algs", to: "/thee-algs" },
     ],
   };

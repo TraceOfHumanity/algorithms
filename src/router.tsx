@@ -20,7 +20,6 @@ import QuickSort from "./pages/algorithms/quick-sort/quick-sort";
 import RemoveElement from "./pages/algorithms/remove-element/remove-element";
 import SelectionSort from "./pages/algorithms/selection-sort/selection-sort";
 import Stack from "./pages/algorithms/stack/stack";
-import TestTask from "./pages/algorithms/test-task/test-task";
 import TheeAlgs from "./pages/algorithms/thee-algs/thee-algs";
 
 const router = createBrowserRouter([
@@ -47,7 +46,6 @@ const router = createBrowserRouter([
       { path: "remove-element", element: <RemoveElement /> },
       { path: "selection-sort", element: <SelectionSort /> },
       { path: "stack", element: <Stack /> },
-      { path: "test-task", element: <TestTask /> },
       { path: "thee-algs", element: <TheeAlgs /> },
       { path: "*", element: <NotFound /> },
     ],
