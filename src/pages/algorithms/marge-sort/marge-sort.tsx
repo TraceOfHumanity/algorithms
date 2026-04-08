@@ -1,5 +1,11 @@
+import Title from "../../../components/title";
+
 const MargeSort = () => {
-  return <div>marge-sort</div>;
+  return (
+    <div>
+      <Title title="Marge Sort" />
+    </div>
+  );
 };
 
 export default MargeSort;

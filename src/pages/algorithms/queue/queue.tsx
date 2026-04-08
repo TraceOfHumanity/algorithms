@@ -1,5 +1,11 @@
+import Title from "../../../components/title";
+
 const Queue = () => {
-  return <div>queue</div>;
+  return (
+    <div>
+      <Title title="Queue" />
+    </div>
+  );
 };
 
 export default Queue;

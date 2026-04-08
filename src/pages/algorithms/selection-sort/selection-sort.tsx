@@ -1,5 +1,11 @@
+import Title from "../../../components/title";
+
 const SelectionSort = () => {
-  return <div>selection-sort</div>;
+  return (
+    <div>
+      <Title title="Selection Sort" />
+    </div>
+  );
 };
 
 export default SelectionSort;
