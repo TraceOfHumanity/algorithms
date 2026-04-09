@@ -19,7 +19,6 @@ import Queue from "./pages/algorithms/queue/queue";
 import QuickSort from "./pages/algorithms/quick-sort/quick-sort";
 import SelectionSort from "./pages/algorithms/selection-sort/selection-sort";
 import Stack from "./pages/algorithms/stack/stack";
-import TheeAlgs from "./pages/algorithms/thee-algs/thee-algs";
 
 const router = createBrowserRouter([
   {
@@ -44,7 +43,6 @@ const router = createBrowserRouter([
       { path: "quick-sort", element: <QuickSort /> },
       { path: "selection-sort", element: <SelectionSort /> },
       { path: "stack", element: <Stack /> },
-      { path: "thee-algs", element: <TheeAlgs /> },
       { path: "*", element: <NotFound /> },
     ],
   },
