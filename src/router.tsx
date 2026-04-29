@@ -7,14 +7,13 @@ import BinaryTree from "./pages/algorithms/binary-tree/binary-tree";
 import BubbleSort from "./pages/algorithms/bubble-sort/bubble-sort";
 import DoublyLinkedList from "./pages/algorithms/doubly-linked-list/doubly-linked-list";
 import Factorial from "./pages/algorithms/factorial/factorial";
-import Fibonacci from "./pages/algorithms/fibonacci/fibonacci";
 import Graph from "./pages/algorithms/graph/graph";
 import HashTable from "./pages/algorithms/hash-table/hash-table";
 import Heap from "./pages/algorithms/heap/heap";
 import InsertionSort from "./pages/algorithms/insertion-sort/insertion-sort";
 import LinearSearch from "./pages/algorithms/linear-search/linear-search";
 import LinkedList from "./pages/algorithms/linked-list/linked-list";
-import MargeSort from "./pages/algorithms/marge-sort/marge-sort";
+import MargeSort from "./pages/algorithms/merge-sort/merge-sort";
 import Queue from "./pages/algorithms/queue/queue";
 import QuickSort from "./pages/algorithms/quick-sort/quick-sort";
 import SelectionSort from "./pages/algorithms/selection-sort/selection-sort";
@@ -31,7 +30,6 @@ const router = createBrowserRouter([
       { path: "bubble-sort", element: <BubbleSort /> },
       { path: "doubly-linked-list", element: <DoublyLinkedList /> },
       { path: "factorial", element: <Factorial /> },
-      { path: "fibonacci", element: <Fibonacci /> },
       { path: "graph", element: <Graph /> },
       { path: "hash-table", element: <HashTable /> },
       { path: "heap", element: <Heap /> },

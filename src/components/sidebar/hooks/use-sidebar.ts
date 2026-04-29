@@ -2,7 +2,7 @@ import type { SidebarProps } from "../types/sidebar";
 import { useState } from "react";
 
 const useSidebar = (): SidebarProps => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   return { isOpen, setIsOpen };
 
 }

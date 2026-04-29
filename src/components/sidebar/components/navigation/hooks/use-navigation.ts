@@ -21,14 +21,11 @@ const UseNavigationItems = () => {
       { label: "Binary Search", to: "/binary-search" },
       { label: "Bubble Sort", to: "/bubble-sort" },
       { label: "Factorial", to: "/factorial" },
-      { label: "Fibonacci", to: "/fibonacci" },
       { label: "Insertion Sort", to: "/insertion-sort" },
       { label: "Linear Search", to: "/linear-search" },
       { label: "Marge Sort", to: "/marge-sort" },
       { label: "Quick Sort", to: "/quick-sort" },
-      { label: "Remove Element", to: "/remove-element" },
       { label: "Selection Sort", to: "/selection-sort" },
-      { label: "Thee Algs", to: "/thee-algs" },
     ],
   };
 
